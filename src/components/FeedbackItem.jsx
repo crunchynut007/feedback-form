@@ -1,12 +1,17 @@
-function FeedbackItem() {
+import PropTypes from 'prop-types'
+import Card from './shared/Card'
+
+function FeedbackItem({item}) {
   return (
-    <div className='card'>
-      <div className='num-display'></div>
-      <div className='text-display'>
-        This is an example of a feedback item
-      </div>
-    </div>
+    <Card reverse={false}>
+      <div className='num-display'>{item.rating}</div>
+      <div className='text-display'>{item.text}</div>
+    </Card>
   )
+}
+
+FeedbackItem.propTypes = {
+  item: PropTypes.object.isRequired
 }
 
 export default FeedbackItem
