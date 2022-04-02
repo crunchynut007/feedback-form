@@ -4,7 +4,7 @@ import FeedbackList from './components/FeedbackList'
 import FeedbackData from './data/FeedbackData'
 import FeedbackStats from './components/FeedbackStats'
 
-function App() {
+export default function App({callback}) {
   const [feedback, setFeedback] = useState(FeedbackData)
 
   const deleteFeedbackItem = (id) => {
@@ -14,14 +14,14 @@ function App() {
   }
 
   return (
-    <fragment>
+    <div ref={callback}>
       <Header/>
       <div className='container'>
         <FeedbackStats feedback={feedback}/>
         <FeedbackList feedback={feedback} handleDelete={deleteFeedbackItem}/>
       </div>
-    </fragment>
+    </div>
   )
 }
 
-export default App
+// export default App
