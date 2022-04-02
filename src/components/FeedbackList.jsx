@@ -27,6 +27,7 @@ FeedbackList.propTypes = {
       text: PropTypes.string.isRequired,
     })
   )
+  // feedback: PropTypes.array.isRequired   - alternate if array doesn't need a shape
 }
 
 export default FeedbackList

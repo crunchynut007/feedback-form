@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 
-// Displays the feedback stats at top of screen
 function FeedbackStats({feedback}) {
   // Calculate the average rating
   let average = feedback.reduce((acc, cur) => {
