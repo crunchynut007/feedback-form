@@ -10,6 +10,7 @@ export default function App({callback}) {
   const deleteFeedbackItem = (id) => {
     if (window.confirm('Are you sure you want to delete this item?')) {
       setFeedback(feedback.filter(item => item.id !== id))
+      console.log(`Deleted item with id:${id}`)
     }
   }
 
