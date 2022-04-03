@@ -32,6 +32,14 @@ header {
     margin-bottom: 30px;
 }
 
+
+header:hover {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: #fff;
+    -webkit-text-decoration-color: #fff;
+}
+
 .card {
     background-color: #fff;
     color: #333;

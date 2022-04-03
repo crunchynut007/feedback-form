@@ -31,7 +31,7 @@ export default function App({callback}) {
     <Router>
       <div ref={callback}>
         <Link to='/' style={{textDecoration: 'none'}}>
-          <Header text='Feedback Form'/>
+          <Header/>
         </Link>
         <div className='container'>
           <Routes>

@@ -18,7 +18,7 @@ function Header({text, bgColor, textColor}) {
 
 //default props
 Header.defaultProps = {
-  text: 'Custom Header Component',
+  text: 'Feedback Form',
   bgColor: 'rgba(0,0,0,0.4)',
   textColor: '#ff6a95'
 }
