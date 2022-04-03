@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
 
 function Header({text, bgColor, textColor}) {
-  //examples of using inline styles
+  //examples of using inline styles with props
   const headerStyle = {
     backgroundColor: bgColor,
     color: textColor,
   }
 
   return (
-    <Link to='/' style={{textDecoration: 'none'}}>
-      <header style={headerStyle}>
-        <div className='container'>
-          <h2>{text}</h2>
-        </div>
-      </header>
-    </Link>
+    <header style={headerStyle}>
+      <div className='container'>
+        <h2>{text}</h2>
+      </div>
+    </header>
   )
 }
 

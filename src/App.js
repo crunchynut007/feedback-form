@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom'
 import {useState} from 'react'
 import Header from './components/Header'
 import FeedbackList from './components/FeedbackList'
@@ -30,7 +30,9 @@ export default function App({callback}) {
 
     <Router>
       <div ref={callback}>
-        <Header text='Feedback Form'/>
+        <Link to='/' style={{textDecoration: 'none'}}>
+          <Header text='Feedback Form'/>
+        </Link>
         <div className='container'>
           <Routes>
             <Route exact path='/' element={
