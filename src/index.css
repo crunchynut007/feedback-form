@@ -85,9 +85,13 @@ header {
     cursor: pointer;
 }
 
-.rating li:hover,
+.rating li:hover {
+    background: rgb(255, 138, 173);
+    color: #fff;
+}
+
 .num-display {
-    background: #ff6a95;
+    background: rgb(255, 106, 149);
     color: #fff;
 }
 
