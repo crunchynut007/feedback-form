@@ -8,12 +8,8 @@ function Header({text, bgColor, textColor}) {
     color: textColor,
   }
 
-  const linkStyle = {
-    textDecoration: 'none',
-  }
-
   return (
-    <Link to='/' style={linkStyle}>
+    <Link to='/' style={{textDecoration: 'none'}}>
       <header style={headerStyle}>
         <div className='container'>
           <h2>{text}</h2>
