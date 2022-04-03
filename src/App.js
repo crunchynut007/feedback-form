@@ -1,4 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {useState} from 'react'
 import Header from './components/Header'
 import FeedbackList from './components/FeedbackList'
@@ -24,14 +25,27 @@ export default function App({callback}) {
   }
 
   return (
-    <div ref={callback}>
-      <Header/>
-      <div className='container'>
-        <FeedbackForm handleAdd={addFeedback}/>
-        <FeedbackStats feedback={feedback}/>
-        <FeedbackList feedback={feedback} handleDelete={deleteFeedbackItem}/>
+
+    <Router>
+      <div ref={callback}>
+        <Header/>
+        <div className='container'>
+          <Routes>
+            <Route exact path='/' element={
+              <>
+                <FeedbackForm handleAdd={addFeedback}/>
+                <FeedbackStats feedback={feedback}/>
+                <FeedbackList feedback={feedback} handleDelete={deleteFeedbackItem}/>
+              </>
+            }>
+            </Route>
+            <Route path='/about' element={<AboutPage/>}/>
+          </Routes>
+          <AboutIconLink/>
+        </div>
       </div>
-    </div>
+    </Router>
+
   )
 }
 
