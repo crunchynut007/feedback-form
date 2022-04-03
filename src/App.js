@@ -14,7 +14,7 @@ export default function App({callback}) {
 
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4()
-    // adds the new feedbackitem at the top of the array
+    // adds the new feedback item at the top of the array
     setFeedback([newFeedback, ...feedback])
     console.log(`Added item with id:${newFeedback.id}`)
   }
@@ -30,7 +30,7 @@ export default function App({callback}) {
 
     <Router>
       <div ref={callback}>
-        <Header/>
+        <Header text='Feedback Form'/>
         <div className='container'>
           <Routes>
             <Route exact path='/' element={
@@ -50,5 +50,3 @@ export default function App({callback}) {
 
   )
 }
-
-// export default App

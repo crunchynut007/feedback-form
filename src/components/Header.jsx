@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 function Header({text, bgColor, textColor}) {
+  //examples of using inline styles
   const headerStyle = {
     backgroundColor: bgColor,
     color: textColor,
@@ -24,7 +25,7 @@ function Header({text, bgColor, textColor}) {
 
 //default props
 Header.defaultProps = {
-  text: 'Feedback Form',
+  text: 'Custom Header Component',
   bgColor: 'rgba(0,0,0,0.4)',
   textColor: '#ff6a95'
 }
