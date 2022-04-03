@@ -11,8 +11,9 @@ export default function App({callback}) {
 
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4()
+    // adds the new feedbackitem at the top of the array
     setFeedback([newFeedback, ...feedback])
-    console.log(newFeedback)
+    console.log(`Added item with id:${newFeedback.id}`)
   }
 
   const deleteFeedbackItem = (id) => {
