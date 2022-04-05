@@ -1,14 +1,16 @@
 import {FaTimes} from 'react-icons/fa'
+import {useContext} from 'react'
 import PropTypes from 'prop-types'
 import Card from './shared/Card'
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackItem({item, handleDelete}) {
-
+function FeedbackItem({item}) {
+  const {deleteFeedbackItem} = useContext(FeedbackContext)
 
   return (
     <Card reverse={false}>
       <div className='num-display'>{item.rating}</div>
-      <button onClick={() => handleDelete(item.id)} className='close'>
+      <button onClick={() => deleteFeedbackItem(item.id)} className='close'>
         <FaTimes color='purple'/>
       </button>
 
