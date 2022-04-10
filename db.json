@@ -1,9 +1,9 @@
 {
   "feedback": [
     {
-      "id": 1,
-      "rating": "10",
-      "text": "this is a feedback for item 1 from our Json db"
+      "text": "this is a feedback for item 1 from our Json db",
+      "rating": "8",
+      "id": 1
     },
     {
       "id": 2,
@@ -14,11 +14,6 @@
       "id": 3,
       "rating": "5",
       "text": "this is a feedback for item 3 from our Json db"
-    },
-    {
-      "rating": "4",
-      "text": "Hello world",
-      "id": 5
     }
   ]
 }
