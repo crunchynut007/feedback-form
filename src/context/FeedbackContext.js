@@ -12,10 +12,11 @@ export const FeedbackProvider = ({children}) => {
 
   // runs only first time page loads
   useEffect(() => {
-    fetchFeedback()
+    getFeedback()
   }, [])
 
-  const fetchFeedback = async () => {
+  // GET feedback item
+  const getFeedback = async () => {
     setIsLoading(true)
     try {
       const res = await fetch(`/feedback?_sort=id&_order=desc`)
@@ -28,7 +29,7 @@ export const FeedbackProvider = ({children}) => {
     }
   }
 
-  // add new item to feedback
+  // POST feedback item
   const addFeedbackItem = async (newFeedback) => {
     const response = await fetch('/feedback', {
       method: 'POST',
@@ -43,7 +44,7 @@ export const FeedbackProvider = ({children}) => {
     console.log(`Added item with id:${data.id}`)
   }
 
-  // delete item from feedback
+  // DELETE feedback item
   const deleteFeedbackItem = async (id) => {
     if (window.confirm('Are you sure you want to delete this item?')) {
       await fetch(`/feedback/${id}`, {
@@ -63,7 +64,7 @@ export const FeedbackProvider = ({children}) => {
     })
   }
 
-  // update feedback item
+  // PUT/update feedback item
   const updateFeedbackItem = async (id, updatedItem) => {
     const response = await fetch(`/feedback/${id}`, {
       method: 'PUT',
