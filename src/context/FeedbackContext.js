@@ -64,8 +64,17 @@ export const FeedbackProvider = ({children}) => {
   }
 
   // update feedback item
-  const updateFeedbackItem = (id, updatedItem) => {
-    setFeedback(feedback.map(item => (item.id === id ? updatedItem : item)))
+  const updateFeedbackItem = async (id, updatedItem) => {
+    const response = await fetch(`/feedback/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedItem),
+    })
+    const data = await response.json()
+
+    setFeedback(feedback.map(item => (item.id === id ? data : item)))
     setFeedbackEdit({
       item: {},
       edit: false
