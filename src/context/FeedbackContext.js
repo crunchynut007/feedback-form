@@ -13,20 +13,21 @@ export const FeedbackProvider = ({children}) => {
 
   // runs only first time page loads
   useEffect(() => {
-    const fetchFeedback = async () => {
-      setIsLoading(true)
-      try {
-        const res = await fetch(`http://localhost:5000/feedback?_sort=id&_order=desc`)
-        const data = await res.json()
-        setFeedback(data)
-        setIsLoading(false)
-        console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
     fetchFeedback()
   }, [])
+
+  const fetchFeedback = async () => {
+    setIsLoading(true)
+    try {
+      const res = await fetch(`http://localhost:5000/feedback?_sort=id&_order=desc`)
+      const data = await res.json()
+      setFeedback(data)
+      setIsLoading(false)
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // Fetch Feedback OLD VERSION
   // const fetchFeedback = async () => {
