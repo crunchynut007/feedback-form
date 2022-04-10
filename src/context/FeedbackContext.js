@@ -1,5 +1,4 @@
 import {createContext, useState, useEffect} from 'react'
-import {v4 as uuidv4} from 'uuid'
 
 const FeedbackContext = createContext()
 
@@ -29,26 +28,19 @@ export const FeedbackProvider = ({children}) => {
     }
   }
 
-  // Fetch Feedback OLD VERSION
-  // const fetchFeedback = async () => {
-  //   // fetch feedback from local storage, order by id descending
-  //   const response = await fetch(`http://localhost:5001/feedback?_sort=id&_order=desc`)
-  //   if (response.status === 200) {
-  //     const data = await response.json()
-  //     setFeedback(data)
-  //     setIsLoading(false)
-  //   } else {
-  //     console.log('Error fetching feedback. Check if the server is running')
-  //   }
-  //   // this function then gets run in useEffect
-  // }
-
   // add new item to feedback
-  const addFeedbackItem = (newFeedback) => {
-    newFeedback.id = uuidv4()
+  const addFeedbackItem = async (newFeedback) => {
+    const response = await fetch('/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newFeedback),
+    })
+    const data = await response.json()
     // adds the new feedback item at the top of the array
-    setFeedback([newFeedback, ...feedback])
-    console.log(`Added item with id:${newFeedback.id}`)
+    setFeedback([data, ...feedback])
+    console.log(`Added item with id:${data.id}`)
   }
 
   // delete item from feedback
